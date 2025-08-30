@@ -1,0 +1,114 @@
+.featureNav {
+  width: 100%;
+  padding: 20px;
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Spacing between navigation items */
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  position: relative; /* For the indicator */
+}
+
+.navItem:hover {
+  background-color: #e0f7fa; /* Light hover effect */
+}
+
+.iconWrapper {
+  font-size: 1.8rem;
+  color: #666;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; /* Fixed width for icons */
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.featureTitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.indicator {
+  position: absolute;
+  left: -5px; /* Adjust to align with the list */
+  top: 50%;
+  transform: translateY(-50%) scaleY(0);
+  height: 80%;
+  width: 5px;
+  background-color: #2196f3; /* Blue indicator */
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.navItem.active .indicator {
+  transform: translateY(-50%) scaleY(1);
+}
+
+.navItem.active .iconWrapper {
+  background-color: #2196f3;
+  color: #fff;
+}
+
+.navItem.active .featureTitle {
+  color: #2196f3;
+  font-weight: 600;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .featureNav {
+    padding: 10px 0;
+  }
+  .navList {
+    flex-direction: row; /* Horizontal scroll on mobile */
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 10px; /* Space for scrollbar */
+    justify-content: flex-start;
+  }
+  .navItem {
+    flex-direction: column; /* Icon on top, text below */
+    text-align: center;
+    padding: 10px 8px;
+    min-width: 90px; /* Ensure items don't get too small */
+    flex-shrink: 0; /* Prevent shrinking */
+  }
+  .iconWrapper {
+    margin: 0 0 5px 0; /* Adjust margin for stacked layout */
+    font-size: 1.5rem;
+    width: 35px;
+    height: 35px;
+  }
+  .featureTitle {
+    font-size: 0.8rem;
+    line-height: 1.2;
+  }
+  .indicator {
+    left: 50%;
+    transform: translateX(-50%) scaleY(0);
+    top: auto;
+    bottom: -5px; 
+    height: 5px;
+    width: 80%;
+  }
+  .navItem.active .indicator {
+      transform: translateX(-50%) scaleY(1);
+  }
+}
